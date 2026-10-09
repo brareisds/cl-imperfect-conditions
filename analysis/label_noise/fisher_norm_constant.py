@@ -1,5 +1,5 @@
 """FISHER_NORM constant: median mean-Fisher over clean (p=0) EWC runs.
-Usage: python fisher_norm_constant.py --root results/label_noise --dataset organamnist"""
+Usage: python analysis/label_noise/fisher_norm_constant.py --root results/label_noise --dataset organamnist"""
 import argparse
 import glob
 import os

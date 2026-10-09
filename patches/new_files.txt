@@ -9,7 +9,7 @@ analysis/label_noise/recency_stats.py
 analysis/label_noise/recency_under_noise.py
 analysis/label_noise/test_corruption_analysis.py
 analysis/label_noise/test_corruption_eval.py
-fisher_norm_constant.py
+analysis/label_noise/fisher_norm_constant.py
 requirements.txt
 scripts/script_bloodmnist_noise.sh
 scripts/script_organamnist_noise.sh

@@ -131,7 +131,7 @@ bash slurm/submit_label_noise.sh                  # label noise within the curre
 bash slurm/submit_phases.sh phase1                # iCaRL with exemplars saved (logits vs NME)
 bash slurm/submit_phases.sh phase2                # cross-task label noise
 FNORM_ORGANAMNIST=<c> FNORM_BLOODMNIST=<c> \
-    bash slurm/submit_phases.sh phase3            # normalized Fisher (constants from fisher_norm_constant.py)
+    bash slurm/submit_phases.sh phase3            # normalized Fisher (constants from analysis/label_noise/fisher_norm_constant.py)
 bash slurm/submit_phases.sh ablation              # iCaRL without class-frequency loss weights
 ```
 
