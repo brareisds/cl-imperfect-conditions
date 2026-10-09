@@ -1,0 +1,27 @@
+analysis,dataset,noise,comparison,n,mean_diff,ci95_lo,ci95_hi,wins,excludes_0
+method_diff_TAg_acc,organamnist,0.1,iCaRL - EWC,5,19.66,10.6305,28.6895,5,1
+method_diff_TAg_acc,organamnist,0.2,iCaRL - EWC,5,15.58,8.3413,22.8187,5,1
+method_diff_TAg_acc,organamnist,0.3,iCaRL - EWC,5,17.16,10.7497,23.5703,5,1
+drop_from_clean_TAg_acc,organamnist,0.1,EWC,5,8.82,1.3859,16.2541,5,1
+drop_from_clean_TAg_acc,organamnist,0.2,EWC,5,9.22,0.1765,18.2635,4,1
+drop_from_clean_TAg_acc,organamnist,0.3,EWC,5,13.82,6.0087,21.6313,5,1
+drop_from_clean_TAg_acc,organamnist,0.1,iCaRL,5,8.64,1.251,16.029,4,1
+drop_from_clean_TAg_acc,organamnist,0.2,iCaRL,5,13.12,5.1635,21.0765,5,1
+drop_from_clean_TAg_acc,organamnist,0.3,iCaRL,5,16.14,3.3585,28.9215,5,1
+retention_diff,organamnist,0.1,iCaRL - EWC,5,0.0746,-0.0999,0.249,3,0
+retention_diff,organamnist,0.2,iCaRL - EWC,5,-0.0041,-0.2218,0.2136,3,0
+retention_diff,organamnist,0.3,iCaRL - EWC,5,0.066,-0.0207,0.1526,4,0
+method_diff_TAg_acc,bloodmnist,0.1,iCaRL - EWC,5,20.74,11.6807,29.7993,5,1
+method_diff_TAg_acc,bloodmnist,0.2,iCaRL - EWC,5,24.02,18.1846,29.8554,5,1
+method_diff_TAg_acc,bloodmnist,0.3,iCaRL - EWC,5,19.72,12.102,27.338,5,1
+drop_from_clean_TAg_acc,bloodmnist,0.1,EWC,5,5.54,0.5713,10.5087,4,1
+drop_from_clean_TAg_acc,bloodmnist,0.2,EWC,5,14.18,0.0847,28.2753,4,1
+drop_from_clean_TAg_acc,bloodmnist,0.3,EWC,5,16.86,3.702,30.018,5,1
+drop_from_clean_TAg_acc,bloodmnist,0.1,iCaRL,5,5.54,1.3388,9.7412,5,1
+drop_from_clean_TAg_acc,bloodmnist,0.2,iCaRL,5,10.9,-4.4688,26.2688,4,0
+drop_from_clean_TAg_acc,bloodmnist,0.3,iCaRL,5,17.88,5.8591,29.9009,5,1
+retention_diff,bloodmnist,0.1,iCaRL - EWC,5,0.0264,-0.1047,0.1575,4,0
+retention_diff,bloodmnist,0.2,iCaRL - EWC,5,0.1311,0.0017,0.2605,5,1
+retention_diff,bloodmnist,0.3,iCaRL - EWC,5,0.0895,-0.1177,0.2966,4,0
+method_diff_TAg_acc,organamnist,0.0,iCaRL - EWC,5,19.48,13.9116,25.0484,5,1
+method_diff_TAg_acc,bloodmnist,0.0,iCaRL - EWC,5,20.74,13.2469,28.2331,5,1

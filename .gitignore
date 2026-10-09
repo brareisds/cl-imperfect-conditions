@@ -1,0 +1,16 @@
+logs/
+data
+__pycache__/
+*.pyc
+*.orig
+*.bak*
+*.pt
+*.pth
+*.ckpt
+slurm-*.out
+results/**
+!results/**/
+!results/**/args-*.txt
+!results/**/stdout-*.txt
+!results/**/log_*_output.log
+results/smoke/

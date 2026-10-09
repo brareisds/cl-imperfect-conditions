@@ -1,0 +1,329 @@
+--- a/src/approach/ewc.py
++++ b/src/approach/ewc.py
+@@ -124,6 +124,17 @@
+ 
+         # calculate Fisher information
+         curr_fisher = self.compute_fisher_matrix_diag(trn_loader)
++        # Optional (opt-in): rescale this task's Fisher so its mean equals a fixed constant
++        import os as _os
++        _fn = _os.environ.get("FISHER_NORM", "")
++        if _fn:
++            if _os.environ.get("SAVE_FISHER", "0") == "1" and self.logger is not None:
++                _d = _os.path.join(self.logger.exp_path, "fisher")
++                _os.makedirs(_d, exist_ok=True)
++                torch.save(curr_fisher, _os.path.join(_d, f"task{t}_raw_unnorm.pt"))
++            _tot = sum(v.numel() for v in curr_fisher.values())
++            _mean = sum(v.sum().item() for v in curr_fisher.values()) / _tot
++            curr_fisher = {n: v * (float(_fn) / _mean) for n, v in curr_fisher.items()}
+         # merge fisher information, we do not want to keep fisher information for each task in memory
+         for n in self.fisher.keys():
+             # Added option to accumulate fisher over time with a pre-fixed growing alpha
+@@ -133,6 +144,18 @@
+             else:
+                 self.fisher[n] = (self.alpha * self.fisher[n] + (1 - self.alpha) * curr_fisher[n])
+ 
++        # Optional: save the Fisher Information (both this task's raw
++        # estimate and the accumulated/merged version actually used
++        # for regularization) for later analysis -- e.g. comparing
++        # natural vs. shuffled class order's effect on which weights
++        # end up considered important.
++        import os as _os
++        if _os.environ.get("SAVE_FISHER", "0") == "1" and self.logger is not None:
++            fisher_dir = _os.path.join(self.logger.exp_path, "fisher")
++            _os.makedirs(fisher_dir, exist_ok=True)
++            torch.save(curr_fisher, _os.path.join(fisher_dir, f"task{t}_raw.pt"))
++            torch.save(self.fisher, _os.path.join(fisher_dir, f"task{t}_accumulated.pt"))
++
+     def criterion(self, t, outputs, targets):
+         """Returns the loss value"""
+         loss = 0
+--- a/src/approach/icarl.py
++++ b/src/approach/icarl.py
+@@ -1,3 +1,4 @@
++import os
+ import torch
+ import warnings
+ import numpy as np
+@@ -55,7 +56,16 @@
+         features = features.unsqueeze(2)
+         features = features.expand_as(means)
+         # get distances for all images to all exemplar class means -- nearest prototype
+-        dists = (features - means).pow(2).sum(1).squeeze()
++        # BUG FIX: .squeeze() with no dim argument collapses the batch
++        # dimension too when batch_size==1 (last batch of an epoch,
++        # e.g. dataset size not divisible by batch_size), turning
++        # dists from (1, n_classes) into (n_classes,) -- a 1D tensor
++        # that breaks the 2D indexing on the next line. squeeze(-1)
++        # only removes the intended trailing singleton dim, keeping
++        # the batch dimension intact regardless of batch size.
++        dists = (features - means).pow(2).sum(1).squeeze(-1)
++        if dists.dim() == 1:
++            dists = dists.unsqueeze(0)
+         # Task-Aware Multi-Head
+         num_cls = self.model.task_cls[task]
+         offset = self.model.task_offset[task]
+@@ -121,6 +131,14 @@
+         # compute mean of exemplars
+         self.compute_mean_of_exemplars(trn_loader, val_loader.dataset.transform)
+ 
++        # Optional: persist exemplars and class means of this task (opt-in)
++        if os.environ.get("SAVE_EXEMPLARS", "0") == "1" and self.logger is not None:
++            ex_dir = os.path.join(self.logger.exp_path, "exemplars")
++            os.makedirs(ex_dir, exist_ok=True)
++            torch.save({"means": [m.detach().cpu() for m in self.exemplar_means],
++                        "images": self.exemplars_dataset.images,
++                        "labels": self.exemplars_dataset.labels}, os.path.join(ex_dir, f"task{t}.pt"))
++
+     def post_train_process(self, t, trn_loader):
+         """Runs after training all the epochs of the task (after the train session)"""
+ 
+@@ -137,6 +155,9 @@
+         if self.fix_bn and t > 0:
+             self.model.freeze_bn()
+         for images, targets in trn_loader:
++            if images.shape[0] < 2:  # BatchNorm cannot train on a 1-sample last batch
++                print(f"[bn-fix] task={t}: skipped 1-sample batch")
++                continue
+             # Forward old model
+             outputs_old = None
+             if t > 0:
+@@ -185,7 +206,8 @@
+ 
+         # Classification loss for new classes
+         # loss = torch.nn.functional.cross_entropy(torch.cat(outputs, dim=1), targets)
+-        loss = torch.nn.functional.cross_entropy(torch.cat(outputs, dim=1), targets, weight=self.weights)
++        _w = None if os.environ.get("NO_CLASS_WEIGHTS", "0") == "1" else self.weights
++        loss = torch.nn.functional.cross_entropy(torch.cat(outputs, dim=1), targets, weight=_w)
+         # Distillation loss for old classes
+         if t > 0:
+             # The original code does not match with the paper equation, maybe sigmoid could be removed from g
+--- a/src/approach/incremental_learning.py
++++ b/src/approach/incremental_learning.py
+@@ -166,6 +166,9 @@
+         if self.fix_bn and t > 0:
+             self.model.freeze_bn()
+         for images, targets in trn_loader:
++            if images.shape[0] < 2:  # BatchNorm cannot train on a 1-sample last batch
++                print(f"[bn-fix] task={t}: skipped 1-sample batch")
++                continue
+             # Forward current model
+             outputs = self.model(images.to(self.device))
+             loss = self.criterion(t, outputs, targets.to(self.device))
+--- a/src/datasets/data_loader.py
++++ b/src/datasets/data_loader.py
+@@ -35,11 +35,12 @@
+                                                       extend_channel=dc['extend_channel'])
+ 
+         # datasets
+-        trn_dset, val_dset, tst_dset, curtaskcla = get_datasets(cur_dataset, dc['path'], num_tasks, nc_first_task,
++        trn_dset, val_dset, tst_dset, curtaskcla, curclassorder = get_datasets(cur_dataset, dc['path'], num_tasks, nc_first_task,
+                                                                 validation=validation,
+                                                                 trn_transform=trn_transform,
+                                                                 tst_transform=tst_transform,
+                                                                 class_order=dc['class_order'])
++        print(f"[class-order check] dataset={cur_dataset} class_order={curclassorder}")
+ 
+         # apply offsets in case of multiple datasets
+         if idx_dataset > 0:
+@@ -146,6 +147,22 @@
+         Dataset = memd.MemoryDataset
+ 
+     
++    elif dataset == 'tissuemnist_balanced':
++        # Loads directly from the custom balanced .npz (created by
++        # make_tissuemnist_balanced.py) instead of downloading the
++        # full TissueMNIST via the medmnist package -- this is NOT
++        # the original dataset, it's a class-balanced subset.
++        npz_path = f"{path}/tissuemnist_balanced.npz"
++        npz = np.load(npz_path)
++        trn_data = {'x': npz['train_images'], 'y': npz['train_labels'].flatten().tolist()}
++        tst_data = {'x': npz['test_images'], 'y': npz['test_labels'].flatten().tolist()}
++        # compute splits
++        all_data, taskcla, class_indices = memd.get_data(trn_data, tst_data, validation=validation,
++                                                         num_tasks=num_tasks, nc_first_task=nc_first_task,
++                                                         shuffle_classes=class_order is None, class_order=class_order)
++        # set dataset type
++        Dataset = memd.MemoryDataset
++
+     elif 'tissuemnist' in dataset:
+         from medmnist import TissueMNIST
+         
+@@ -235,7 +252,7 @@
+         tst_dset.append(Dataset(all_data[task]['tst'], tst_transform, class_indices))
+         offset += taskcla[task][1]
+ 
+-    return trn_dset, val_dset, tst_dset, taskcla
++    return trn_dset, val_dset, tst_dset, taskcla, class_indices
+ 
+ 
+ def get_transforms(resize, pad, crop, flip, normalize, extend_channel):
+@@ -267,15 +284,16 @@
+     trn_transform_list.append(transforms.ToTensor())
+     tst_transform_list.append(transforms.ToTensor())
+ 
++    # gray to rgb (must run before normalize, so Normalize sees the
++    # right number of channels)
++    if extend_channel is not None:
++        trn_transform_list.append(transforms.Lambda(lambda x: x.repeat(extend_channel, 1, 1)))
++        tst_transform_list.append(transforms.Lambda(lambda x: x.repeat(extend_channel, 1, 1)))
++
+     # normalization
+     if normalize is not None:
+         trn_transform_list.append(transforms.Normalize(mean=normalize[0], std=normalize[1]))
+         tst_transform_list.append(transforms.Normalize(mean=normalize[0], std=normalize[1]))
+ 
+-    # gray to rgb
+-    if extend_channel is not None:
+-        trn_transform_list.append(transforms.Lambda(lambda x: x.repeat(extend_channel, 1, 1)))
+-        tst_transform_list.append(transforms.Lambda(lambda x: x.repeat(extend_channel, 1, 1)))
+-
+     return transforms.Compose(trn_transform_list), \
+            transforms.Compose(tst_transform_list)
+--- a/src/datasets/dataset_config.py
++++ b/src/datasets/dataset_config.py
+@@ -32,7 +32,7 @@
+         'pad': 4,
+         'crop': 32,
+         'flip': True,
+-        'normalize': None
++        'normalize': ((0.7405, 0.533, 0.7058), (0.1237, 0.1768, 0.1244))
+     },
+     'organamnist': {
+         'path': join(_BASE_DATA_PATH, 'organamnist'),
+@@ -40,7 +40,42 @@
+         'pad': 4,
+         'crop': 32,
+         'flip': True,
+-        'normalize': None
++        'normalize': ((0.468, 0.468, 0.468), (0.2974, 0.2974, 0.2974)),
++        'extend_channel': 3
++    },
++    'bloodmnist_64': {
++        'path': join(_BASE_DATA_PATH, 'bloodmnist'),
++        'resize': None,
++        'pad': 4,
++        'crop': 64,
++        'flip': True,
++        'normalize': ((0.7961, 0.6596, 0.6963), (0.2233, 0.2546, 0.0947))
++    },
++    'tissuemnist_balanced': {
++        'path': join(_BASE_DATA_PATH, 'tissuemnist_balanced'),
++        'resize': None, 'pad': 4, 'crop': 32, 'flip': True,
++        'normalize': ((0.102, 0.102, 0.102), (0.1, 0.1, 0.1)),
++        'extend_channel': 3
++    },
++    'organamnist_64': {
++        'path': join(_BASE_DATA_PATH, 'organamnist'),
++        'resize': None,
++        'pad': 4,
++        'crop': 64,
++        'flip': True,
++        'normalize': ((0.4681, 0.4681, 0.4681), (0.2858, 0.2858, 0.2858)),
++        'extend_channel': 3
++    },
++    # Isolates the effect of normalization alone: same path, same
++    # extend_channel, but normalize=None.
++    'organamnist_nonorm': {
++        'path': join(_BASE_DATA_PATH, 'organamnist'),
++        'resize': None,
++        'pad': 4,
++        'crop': 32,
++        'flip': True,
++        'normalize': None,
++        'extend_channel': 3
+     },
+     'bloodmnist': {
+         'path': join(_BASE_DATA_PATH, 'bloodmnist'),
+@@ -48,7 +83,7 @@
+         'pad': 4,
+         'crop': 32,
+         'flip': True,
+-        'normalize': None
++        'normalize': ((0.7943, 0.6597, 0.6962), (0.2156, 0.2416, 0.1179))
+     },
+     'tissuemnist': {
+         'path': join(_BASE_DATA_PATH, 'tissuemnist'),
+@@ -56,7 +91,8 @@
+         'pad': 4,
+         'crop': 32,
+         'flip': True,
+-        'normalize': None
++        'normalize': ((0.102, 0.102, 0.102), (0.1, 0.1, 0.1)),
++        'extend_channel': 3
+     },
+     'cifar100_icarl': {
+         'path': join(_BASE_DATA_PATH, 'cifar100'),
+--- a/src/datasets/memory_dataset.py
++++ b/src/datasets/memory_dataset.py
+@@ -37,8 +37,13 @@
+     else:
+         num_classes = len(class_order)
+         class_order = class_order.copy()
+-    if False:
+-        np.random.shuffle(class_order)
++    import os as _os
++    if _os.environ.get("SHUFFLE_CLASSES_FIX", "0") == "1":
++        if shuffle_classes:
++            np.random.shuffle(class_order)
++    else:
++        if False:
++            np.random.shuffle(class_order)
+ 
+     # compute classes per task and num_tasks
+     if nc_first_task is None:
+@@ -98,10 +103,34 @@
+         data[tt]['ncla'] = len(np.unique(data[tt]['trn']['y']))
+         assert data[tt]['ncla'] == cpertask[tt], "something went wrong splitting classes"
+ 
++    # LABEL NOISE (opt-in via LABEL_NOISE env): symmetric flip within each task,
++    # own RNG (LABEL_NOISE_SEED) so class order / validation split stay paired
++    # with the clean run. Applied after the task split, before validation.
++    _p = float(_os.environ.get("LABEL_NOISE", "0"))
++    if _p > 0:
++        _rs = np.random.RandomState(int(_os.environ.get("LABEL_NOISE_SEED", "0")))
++        for tt in range(num_tasks):
++            y = np.asarray(data[tt]['trn']['y'])
++            k = int(cpertask[tt])
++            if k < 2:
++                continue
++            flip = _rs.rand(len(y)) < _p
++            if _os.environ.get("LABEL_NOISE_MODE", "intra") == "cross":
++                # cross-task: wrong label drawn among classes of tasks <= tt (local label may be < 0;
++                # data_loader adds the task offset afterwards)
++                seen = int(cpertask_cumsum[tt])
++                offs = _rs.randint(1, seen, size=len(y))
++                g = y + int(init_class[tt])
++                data[tt]['trn']['y'] = (np.where(flip, (g + offs) % seen, g) - int(init_class[tt])).tolist()
++            else:
++                offs = _rs.randint(1, k, size=len(y))
++                data[tt]['trn']['y'] = np.where(flip, (y + offs) % k, y).tolist()
++            print(f"[label-noise] task={tt} p={_p} flipped={int(flip.sum())}/{len(y)}")
++
+     # validation
+     if validation > 0.0:
+         for tt in data.keys():
+-            for cc in range(data[tt]['ncla']):
++            for cc in np.unique(data[tt]['trn']['y']):
+                 cls_idx = list(np.where(np.asarray(data[tt]['trn']['y']) == cc)[0])
+                 rnd_img = random.sample(cls_idx, int(np.round(len(cls_idx) * validation)))
+                 rnd_img.sort(reverse=True)
+--- a/src/main_incremental.py
++++ b/src/main_incremental.py
+@@ -200,6 +200,8 @@
+                                                               args.batch_size, num_workers=args.num_workers,
+                                                               pin_memory=args.pin_memory)
+ 
++    print(f"[class-order check] seed={args.seed} dataset={args.datasets} taskcla={taskcla}")
++
+ 
+     # Apply arguments for loaders
+     if args.use_valid_only:
+@@ -280,6 +282,8 @@
+         # Train
+         # pdb.set_trace()
+         labels = torch.tensor(trn_loader[t].dataset.labels)
++        _off = sum(c for _, c in taskcla[:t])
++        labels = labels[(labels >= _off) & (labels < _off + taskcla[t][1])]  # only this task's classes
+         unique_lbls = torch.unique(labels)
+         frequencies = torch.Tensor([len(torch.where(labels==lbl)[0]) for lbl in unique_lbls]).cuda().float()
+         all_fequencies.append(frequencies)

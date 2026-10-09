@@ -1,0 +1,5 @@
+dataset,native_color,channels_raw,n_classes,is_binary,n_train_samples,resolution,intensity_min,intensity_max,majority_class_n,minority_class_n,imbalance_ratio
+organamnist,grayscale,1,11,False,34561,28x28,0,255,6164,1357,4.54
+pathmnist,RGB,3,9,False,89996,28x28,0,255,12885,7886,1.63
+bloodmnist,RGB,3,8,False,11959,28x28,0,255,2330,849,2.74
+tissuemnist,grayscale,1,8,False,165466,28x28,0,255,53075,5866,9.05
