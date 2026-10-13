@@ -1,3 +1,4 @@
+import os
 import torch
 import itertools
 from argparse import ArgumentParser
@@ -115,6 +116,11 @@ class Appr(Inc_Learning_Appr):
         # pdb.set_trace()
         # EXEMPLAR MANAGEMENT -- select training subset
         self.exemplars_dataset.collect_exemplars(self.model, trn_loader, val_loader.dataset.transform)
+        if os.environ.get("SAVE_EXEMPLARS", "0") == "1" and self.logger is not None:
+            ex_dir = os.path.join(self.logger.exp_path, "exemplars")
+            os.makedirs(ex_dir, exist_ok=True)
+            torch.save({"images": self.exemplars_dataset.images,
+                        "labels": self.exemplars_dataset.labels}, os.path.join(ex_dir, f"task{t}.pt"))
 
     def post_train_process(self, t, trn_loader):
         """Runs after training all the epochs of the task (after the train session)"""

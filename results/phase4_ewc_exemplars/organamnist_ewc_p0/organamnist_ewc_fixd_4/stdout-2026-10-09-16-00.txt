@@ -1,0 +1,285 @@
+[class-order check] dataset=organamnist class_order=[3, 8, 4, 9, 2, 6, 0, 1, 5, 7, 10]
+[class-order check] seed=4 dataset=['organamnist'] taskcla=[(0, 3), (1, 3), (2, 3), (3, 2)]
+[(0, 3), (1, 3), (2, 3), (3, 2)]
+************************************************************************************************************
+Task  0
+************************************************************************************************************
+| Epoch   1, time=  4.4s | Train: skip eval | Valid: time=  0.3s loss=0.209, TAw acc= 93.4% | *
+| Epoch   2, time=  4.1s | Train: skip eval | Valid: time=  0.3s loss=0.132, TAw acc= 95.5% | *
+| Epoch   3, time=  3.9s | Train: skip eval | Valid: time=  0.2s loss=0.081, TAw acc= 97.9% | *
+| Epoch   4, time=  3.9s | Train: skip eval | Valid: time=  0.3s loss=0.081, TAw acc= 97.3% | *
+| Epoch   5, time=  3.9s | Train: skip eval | Valid: time=  0.2s loss=0.053, TAw acc= 98.7% | *
+| Epoch   6, time=  3.9s | Train: skip eval | Valid: time=  0.3s loss=0.046, TAw acc= 98.6% | *
+| Epoch   7, time=  3.9s | Train: skip eval | Valid: time=  0.2s loss=0.047, TAw acc= 98.9% |
+| Epoch   8, time=  3.9s | Train: skip eval | Valid: time=  0.3s loss=0.059, TAw acc= 97.9% |
+| Epoch   9, time=  3.9s | Train: skip eval | Valid: time=  0.2s loss=0.038, TAw acc= 99.0% | *
+| Epoch  10, time=  3.9s | Train: skip eval | Valid: time=  0.2s loss=0.041, TAw acc= 98.9% |
+| Epoch  11, time=  4.0s | Train: skip eval | Valid: time=  0.2s loss=0.038, TAw acc= 98.9% |
+| Epoch  12, time=  3.9s | Train: skip eval | Valid: time=  0.2s loss=0.032, TAw acc= 99.3% | *
+| Epoch  13, time=  3.9s | Train: skip eval | Valid: time=  0.2s loss=0.027, TAw acc= 99.7% | *
+| Epoch  14, time=  3.9s | Train: skip eval | Valid: time=  0.3s loss=0.037, TAw acc= 99.3% |
+| Epoch  15, time=  3.9s | Train: skip eval | Valid: time=  0.3s loss=0.031, TAw acc= 99.3% |
+| Epoch  16, time=  3.9s | Train: skip eval | Valid: time=  0.3s loss=0.031, TAw acc= 98.9% |
+| Epoch  17, time=  3.9s | Train: skip eval | Valid: time=  0.2s loss=0.028, TAw acc= 99.5% |
+| Epoch  18, time=  3.9s | Train: skip eval | Valid: time=  0.2s loss=0.027, TAw acc= 99.5% | *
+| Epoch  19, time=  3.9s | Train: skip eval | Valid: time=  0.3s loss=0.027, TAw acc= 99.4% |
+| Epoch  20, time=  3.9s | Train: skip eval | Valid: time=  0.2s loss=0.021, TAw acc= 99.6% | *
+| Epoch  21, time=  3.9s | Train: skip eval | Valid: time=  0.3s loss=0.022, TAw acc= 99.5% |
+| Epoch  22, time=  4.0s | Train: skip eval | Valid: time=  0.3s loss=0.019, TAw acc= 99.5% | *
+| Epoch  23, time=  3.9s | Train: skip eval | Valid: time=  0.3s loss=0.021, TAw acc= 99.7% |
+| Epoch  24, time=  3.9s | Train: skip eval | Valid: time=  0.3s loss=0.021, TAw acc= 99.6% |
+| Epoch  25, time=  3.9s | Train: skip eval | Valid: time=  0.2s loss=0.022, TAw acc= 99.5% |
+| Epoch  26, time=  3.9s | Train: skip eval | Valid: time=  0.2s loss=0.023, TAw acc= 99.6% |
+| Epoch  27, time=  3.9s | Train: skip eval | Valid: time=  0.3s loss=0.017, TAw acc= 99.7% | *
+| Epoch  28, time=  3.9s | Train: skip eval | Valid: time=  0.3s loss=0.019, TAw acc= 99.7% |
+| Epoch  29, time=  3.9s | Train: skip eval | Valid: time=  0.3s loss=0.018, TAw acc= 99.6% |
+| Epoch  30, time=  3.9s | Train: skip eval | Valid: time=  0.3s loss=0.018, TAw acc= 99.5% |
+| Epoch  31, time=  3.9s | Train: skip eval | Valid: time=  0.2s loss=0.020, TAw acc= 99.6% |
+| Epoch  32, time=  3.9s | Train: skip eval | Valid: time=  0.2s loss=0.021, TAw acc= 99.5% | lr=3.3e-04
+| Epoch  33, time=  3.9s | Train: skip eval | Valid: time=  0.3s loss=0.022, TAw acc= 99.6% |
+| Epoch  34, time=  3.9s | Train: skip eval | Valid: time=  0.2s loss=0.020, TAw acc= 99.7% |
+| Epoch  35, time=  3.9s | Train: skip eval | Valid: time=  0.2s loss=0.019, TAw acc= 99.6% |
+| Epoch  36, time=  3.9s | Train: skip eval | Valid: time=  0.2s loss=0.015, TAw acc= 99.7% | *
+| Epoch  37, time=  3.9s | Train: skip eval | Valid: time=  0.3s loss=0.028, TAw acc= 99.4% |
+| Epoch  38, time=  4.0s | Train: skip eval | Valid: time=  0.3s loss=0.022, TAw acc= 99.6% |
+| Epoch  39, time=  3.9s | Train: skip eval | Valid: time=  0.2s loss=0.024, TAw acc= 99.6% |
+| Epoch  40, time=  3.9s | Train: skip eval | Valid: time=  0.2s loss=0.018, TAw acc= 99.7% |
+| Epoch  41, time=  3.9s | Train: skip eval | Valid: time=  0.2s loss=0.022, TAw acc= 99.5% | lr=1.1e-04
+| Epoch  42, time=  3.9s | Train: skip eval | Valid: time=  0.2s loss=0.019, TAw acc= 99.6% |
+| Epoch  43, time=  4.0s | Train: skip eval | Valid: time=  0.2s loss=0.019, TAw acc= 99.6% |
+| Epoch  44, time=  4.0s | Train: skip eval | Valid: time=  0.3s loss=0.024, TAw acc= 99.5% |
+| Epoch  45, time=  3.9s | Train: skip eval | Valid: time=  0.3s loss=0.019, TAw acc= 99.7% |
+| Epoch  46, time=  3.9s | Train: skip eval | Valid: time=  0.3s loss=0.022, TAw acc= 99.6% | lr=3.7e-05
+| Selected 201 train exemplars, time=  6.9s
+------------------------------------------------------------------------------------------------------------
+>>> Test on task  0 : loss=0.072 | TAw acc= 97.6%, forg=  0.0%| TAg acc= 97.6%, forg=  0.0% <<<
+Save at /project/6006134/barbara/EWC-DR-experiments/cl-imperfect-conditions/results/phase4_ewc_exemplars/organamnist_ewc_p0/organamnist_ewc_fixd_4
+************************************************************************************************************
+Task  1
+************************************************************************************************************
+| Epoch   1, time=  6.3s | Train: skip eval | Valid: time=  0.4s loss=94.956, TAw acc= 58.4% | *
+| Epoch   2, time=  6.2s | Train: skip eval | Valid: time=  0.4s loss=198.547, TAw acc= 27.8% |
+| Epoch   3, time=  6.2s | Train: skip eval | Valid: time=  0.4s loss=13.117, TAw acc= 37.5% | *
+| Epoch   4, time=  6.3s | Train: skip eval | Valid: time=  0.4s loss=35.796, TAw acc= 16.6% |
+| Epoch   5, time=  6.3s | Train: skip eval | Valid: time=  0.4s loss=32.905, TAw acc= 58.4% |
+| Epoch   6, time=  6.3s | Train: skip eval | Valid: time=  0.3s loss=73.157, TAw acc= 12.9% |
+| Epoch   7, time=  6.3s | Train: skip eval | Valid: time=  0.4s loss=117.708, TAw acc= 12.9% |
+| Epoch   8, time=  6.3s | Train: skip eval | Valid: time=  0.3s loss=229.591, TAw acc= 12.9% | lr=3.3e-04
+| Epoch   9, time=  6.2s | Train: skip eval | Valid: time=  0.3s loss=9.288, TAw acc= 58.7% | *
+| Epoch  10, time=  6.2s | Train: skip eval | Valid: time=  0.4s loss=5.906, TAw acc= 73.6% | *
+| Epoch  11, time=  6.3s | Train: skip eval | Valid: time=  0.3s loss=6.432, TAw acc= 58.6% |
+| Epoch  12, time=  6.3s | Train: skip eval | Valid: time=  0.3s loss=21.682, TAw acc= 58.4% |
+| Epoch  13, time=  6.3s | Train: skip eval | Valid: time=  0.3s loss=5.375, TAw acc= 62.7% | *
+| Epoch  14, time=  6.3s | Train: skip eval | Valid: time=  0.3s loss=8.159, TAw acc= 40.1% |
+| Epoch  15, time=  6.1s | Train: skip eval | Valid: time=  0.4s loss=4.494, TAw acc= 78.5% | *
+| Epoch  16, time=  6.1s | Train: skip eval | Valid: time=  0.4s loss=4.152, TAw acc= 88.5% | *
+| Epoch  17, time=  6.2s | Train: skip eval | Valid: time=  0.4s loss=7.560, TAw acc= 34.1% |
+| Epoch  18, time=  6.2s | Train: skip eval | Valid: time=  0.3s loss=13.341, TAw acc= 28.7% |
+| Epoch  19, time=  6.3s | Train: skip eval | Valid: time=  0.3s loss=11.066, TAw acc= 13.7% |
+| Epoch  20, time=  6.3s | Train: skip eval | Valid: time=  0.3s loss=8.956, TAw acc= 28.6% |
+| Epoch  21, time=  6.1s | Train: skip eval | Valid: time=  0.3s loss=10.734, TAw acc= 28.7% | lr=1.1e-04
+| Epoch  22, time=  6.3s | Train: skip eval | Valid: time=  0.3s loss=5.292, TAw acc= 44.8% |
+| Epoch  23, time=  6.1s | Train: skip eval | Valid: time=  0.4s loss=4.368, TAw acc= 73.9% |
+| Epoch  24, time=  6.3s | Train: skip eval | Valid: time=  0.4s loss=4.069, TAw acc= 87.3% | *
+| Epoch  25, time=  6.2s | Train: skip eval | Valid: time=  0.4s loss=4.183, TAw acc= 80.8% |
+| Epoch  26, time=  6.2s | Train: skip eval | Valid: time=  0.4s loss=10.073, TAw acc= 35.9% |
+| Epoch  27, time=  6.3s | Train: skip eval | Valid: time=  0.3s loss=4.287, TAw acc= 76.4% |
+| Epoch  28, time=  6.2s | Train: skip eval | Valid: time=  0.3s loss=4.101, TAw acc= 86.4% |
+| Epoch  29, time=  6.2s | Train: skip eval | Valid: time=  0.4s loss=3.984, TAw acc= 87.7% | *
+| Epoch  30, time=  6.3s | Train: skip eval | Valid: time=  0.4s loss=3.958, TAw acc= 86.9% | *
+| Epoch  31, time=  6.4s | Train: skip eval | Valid: time=  0.3s loss=5.692, TAw acc= 62.1% |
+| Epoch  32, time=  6.3s | Train: skip eval | Valid: time=  0.4s loss=4.003, TAw acc= 83.2% |
+| Epoch  33, time=  6.3s | Train: skip eval | Valid: time=  0.4s loss=3.973, TAw acc= 82.7% |
+| Epoch  34, time=  6.3s | Train: skip eval | Valid: time=  0.4s loss=4.618, TAw acc= 50.2% |
+| Epoch  35, time=  6.1s | Train: skip eval | Valid: time=  0.4s loss=9.763, TAw acc= 65.7% | lr=3.7e-05
+| Selected 204 train exemplars, time=  4.4s
+------------------------------------------------------------------------------------------------------------
+>>> Test on task  0 : loss=3.356 | TAw acc= 78.7%, forg= 19.0%| TAg acc= 16.7%, forg= 81.0% <<<
+>>> Test on task  1 : loss=0.396 | TAw acc= 83.8%, forg=  0.0%| TAg acc= 83.8%, forg=  0.0% <<<
+Save at /project/6006134/barbara/EWC-DR-experiments/cl-imperfect-conditions/results/phase4_ewc_exemplars/organamnist_ewc_p0/organamnist_ewc_fixd_4
+************************************************************************************************************
+Task  2
+************************************************************************************************************
+| Epoch   1, time=  4.3s | Train: skip eval | Valid: time=  0.3s loss=0.513, TAw acc= 83.1% | *
+| Epoch   2, time=  4.3s | Train: skip eval | Valid: time=  0.3s loss=0.463, TAw acc= 85.1% | *
+| Epoch   3, time=  4.4s | Train: skip eval | Valid: time=  0.3s loss=0.441, TAw acc= 85.9% | *
+| Epoch   4, time=  4.4s | Train: skip eval | Valid: time=  0.3s loss=0.422, TAw acc= 87.2% | *
+| Epoch   5, time=  4.3s | Train: skip eval | Valid: time=  0.3s loss=0.407, TAw acc= 88.0% | *
+| Epoch   6, time=  4.3s | Train: skip eval | Valid: time=  0.3s loss=0.385, TAw acc= 89.4% | *
+| Epoch   7, time=  4.4s | Train: skip eval | Valid: time=  0.3s loss=0.357, TAw acc= 89.4% | *
+| Epoch   8, time=  4.4s | Train: skip eval | Valid: time=  0.3s loss=0.361, TAw acc= 89.7% |
+| Epoch   9, time=  4.4s | Train: skip eval | Valid: time=  0.3s loss=0.430, TAw acc= 84.1% |
+| Epoch  10, time=  4.3s | Train: skip eval | Valid: time=  0.3s loss=0.341, TAw acc= 89.4% | *
+| Epoch  11, time=  4.4s | Train: skip eval | Valid: time=  0.3s loss=0.359, TAw acc= 90.4% |
+| Epoch  12, time=  4.3s | Train: skip eval | Valid: time=  0.3s loss=0.339, TAw acc= 90.1% | *
+| Epoch  13, time=  4.4s | Train: skip eval | Valid: time=  0.3s loss=0.321, TAw acc= 90.5% | *
+| Epoch  14, time=  4.5s | Train: skip eval | Valid: time=  0.3s loss=0.308, TAw acc= 92.5% | *
+| Epoch  15, time=  4.3s | Train: skip eval | Valid: time=  0.3s loss=0.311, TAw acc= 92.1% |
+| Epoch  16, time=  4.4s | Train: skip eval | Valid: time=  0.3s loss=0.336, TAw acc= 91.2% |
+| Epoch  17, time=  4.3s | Train: skip eval | Valid: time=  0.3s loss=0.285, TAw acc= 92.5% | *
+| Epoch  18, time=  4.4s | Train: skip eval | Valid: time=  0.3s loss=0.303, TAw acc= 91.5% |
+| Epoch  19, time=  4.3s | Train: skip eval | Valid: time=  0.3s loss=0.298, TAw acc= 92.2% |
+| Epoch  20, time=  4.3s | Train: skip eval | Valid: time=  0.3s loss=0.280, TAw acc= 92.6% | *
+| Epoch  21, time=  4.4s | Train: skip eval | Valid: time=  0.3s loss=0.275, TAw acc= 91.9% | *
+| Epoch  22, time=  4.4s | Train: skip eval | Valid: time=  0.3s loss=0.268, TAw acc= 93.0% | *
+| Epoch  23, time=  4.3s | Train: skip eval | Valid: time=  0.3s loss=0.367, TAw acc= 86.6% |
+| Epoch  24, time=  4.3s | Train: skip eval | Valid: time=  0.3s loss=0.263, TAw acc= 94.0% | *
+| Epoch  25, time=  4.4s | Train: skip eval | Valid: time=  0.3s loss=0.261, TAw acc= 93.9% | *
+| Epoch  26, time=  4.4s | Train: skip eval | Valid: time=  0.3s loss=0.265, TAw acc= 91.8% |
+| Epoch  27, time=  4.3s | Train: skip eval | Valid: time=  0.3s loss=0.276, TAw acc= 92.9% |
+| Epoch  28, time=  4.3s | Train: skip eval | Valid: time=  0.3s loss=0.246, TAw acc= 94.1% | *
+| Epoch  29, time=  4.3s | Train: skip eval | Valid: time=  0.3s loss=0.249, TAw acc= 94.3% |
+| Epoch  30, time=  4.4s | Train: skip eval | Valid: time=  0.3s loss=0.333, TAw acc= 89.1% |
+| Epoch  31, time=  4.3s | Train: skip eval | Valid: time=  0.3s loss=0.243, TAw acc= 94.8% | *
+| Epoch  32, time=  4.3s | Train: skip eval | Valid: time=  0.5s loss=0.251, TAw acc= 94.1% |
+| Epoch  33, time=  4.3s | Train: skip eval | Valid: time=  0.4s loss=0.245, TAw acc= 94.0% |
+| Epoch  34, time=  4.3s | Train: skip eval | Valid: time=  0.3s loss=0.243, TAw acc= 93.6% |
+| Epoch  35, time=  7.7s | Train: skip eval | Valid: time=  0.5s loss=0.266, TAw acc= 93.9% |
+| Epoch  36, time=  4.5s | Train: skip eval | Valid: time=  0.3s loss=0.242, TAw acc= 94.6% | *
+| Epoch  37, time=  4.2s | Train: skip eval | Valid: time=  0.3s loss=0.247, TAw acc= 94.0% |
+| Epoch  38, time=  4.3s | Train: skip eval | Valid: time=  0.3s loss=0.227, TAw acc= 94.8% | *
+| Epoch  39, time=  4.4s | Train: skip eval | Valid: time=  0.3s loss=0.226, TAw acc= 95.0% | *
+| Epoch  40, time=  4.4s | Train: skip eval | Valid: time=  0.3s loss=0.238, TAw acc= 94.4% |
+| Epoch  41, time=  4.3s | Train: skip eval | Valid: time=  0.3s loss=0.232, TAw acc= 94.7% |
+| Epoch  42, time=  4.3s | Train: skip eval | Valid: time=  0.3s loss=0.243, TAw acc= 94.4% |
+| Epoch  43, time=  4.3s | Train: skip eval | Valid: time=  0.3s loss=0.224, TAw acc= 94.4% | *
+| Epoch  44, time=  4.4s | Train: skip eval | Valid: time=  0.3s loss=0.236, TAw acc= 94.3% |
+| Epoch  45, time=  4.4s | Train: skip eval | Valid: time=  0.3s loss=0.232, TAw acc= 94.7% |
+| Epoch  46, time=  4.4s | Train: skip eval | Valid: time=  0.3s loss=0.215, TAw acc= 95.3% | *
+| Epoch  47, time=  4.4s | Train: skip eval | Valid: time=  0.3s loss=0.227, TAw acc= 94.7% |
+| Epoch  48, time=  4.4s | Train: skip eval | Valid: time=  0.3s loss=0.217, TAw acc= 95.1% |
+| Epoch  49, time=  4.4s | Train: skip eval | Valid: time=  0.3s loss=0.225, TAw acc= 94.1% |
+| Epoch  50, time=  4.4s | Train: skip eval | Valid: time=  0.3s loss=0.210, TAw acc= 95.1% | *
+| Epoch  51, time=  4.3s | Train: skip eval | Valid: time=  0.3s loss=0.218, TAw acc= 94.7% |
+| Epoch  52, time=  4.4s | Train: skip eval | Valid: time=  0.3s loss=0.220, TAw acc= 94.8% |
+| Epoch  53, time=  4.3s | Train: skip eval | Valid: time=  0.3s loss=0.218, TAw acc= 95.0% |
+| Epoch  54, time=  4.4s | Train: skip eval | Valid: time=  0.3s loss=0.228, TAw acc= 95.3% |
+| Epoch  55, time=  4.4s | Train: skip eval | Valid: time=  0.3s loss=0.208, TAw acc= 95.7% | *
+| Epoch  56, time=  4.4s | Train: skip eval | Valid: time=  0.3s loss=0.214, TAw acc= 95.0% |
+| Epoch  57, time=  4.3s | Train: skip eval | Valid: time=  0.3s loss=0.210, TAw acc= 95.3% |
+| Epoch  58, time=  4.3s | Train: skip eval | Valid: time=  0.3s loss=0.213, TAw acc= 94.7% |
+| Epoch  59, time=  4.3s | Train: skip eval | Valid: time=  0.3s loss=0.208, TAw acc= 96.0% | *
+| Epoch  60, time=  4.4s | Train: skip eval | Valid: time=  0.3s loss=0.245, TAw acc= 94.7% |
+| Epoch  61, time=  4.4s | Train: skip eval | Valid: time=  0.3s loss=0.214, TAw acc= 95.4% |
+| Epoch  62, time=  4.3s | Train: skip eval | Valid: time=  0.3s loss=0.200, TAw acc= 95.5% | *
+| Epoch  63, time=  4.3s | Train: skip eval | Valid: time=  0.3s loss=0.213, TAw acc= 96.2% |
+| Epoch  64, time=  4.4s | Train: skip eval | Valid: time=  0.3s loss=0.206, TAw acc= 96.4% |
+| Epoch  65, time=  4.4s | Train: skip eval | Valid: time=  0.3s loss=0.202, TAw acc= 95.5% |
+| Epoch  66, time=  4.4s | Train: skip eval | Valid: time=  0.3s loss=0.202, TAw acc= 95.8% |
+| Epoch  67, time=  4.4s | Train: skip eval | Valid: time=  0.3s loss=0.204, TAw acc= 96.0% | lr=3.3e-04
+| Epoch  68, time=  4.4s | Train: skip eval | Valid: time=  0.3s loss=0.190, TAw acc= 96.1% | *
+| Epoch  69, time=  4.3s | Train: skip eval | Valid: time=  0.3s loss=0.190, TAw acc= 96.2% |
+| Epoch  70, time=  4.3s | Train: skip eval | Valid: time=  0.3s loss=0.183, TAw acc= 96.2% | *
+| Epoch  71, time=  4.4s | Train: skip eval | Valid: time=  0.3s loss=0.190, TAw acc= 96.2% |
+| Epoch  72, time=  4.4s | Train: skip eval | Valid: time=  0.3s loss=0.196, TAw acc= 96.0% |
+| Epoch  73, time=  4.3s | Train: skip eval | Valid: time=  0.3s loss=0.189, TAw acc= 96.2% |
+| Epoch  74, time=  4.3s | Train: skip eval | Valid: time=  0.3s loss=0.182, TAw acc= 96.7% | *
+| Epoch  75, time=  4.4s | Train: skip eval | Valid: time=  0.3s loss=0.189, TAw acc= 96.1% |
+| Epoch  76, time=  4.3s | Train: skip eval | Valid: time=  0.3s loss=0.188, TAw acc= 96.4% |
+| Epoch  77, time=  4.4s | Train: skip eval | Valid: time=  0.3s loss=0.177, TAw acc= 96.2% | *
+| Epoch  78, time=  4.3s | Train: skip eval | Valid: time=  0.3s loss=0.187, TAw acc= 96.4% |
+| Epoch  79, time=  4.4s | Train: skip eval | Valid: time=  0.3s loss=0.187, TAw acc= 96.4% |
+| Epoch  80, time=  4.3s | Train: skip eval | Valid: time=  0.3s loss=0.179, TAw acc= 96.1% |
+| Epoch  81, time=  4.4s | Train: skip eval | Valid: time=  0.3s loss=0.178, TAw acc= 96.7% |
+| Epoch  82, time=  4.4s | Train: skip eval | Valid: time=  0.3s loss=0.180, TAw acc= 96.4% | lr=1.1e-04
+| Epoch  83, time=  4.4s | Train: skip eval | Valid: time=  0.3s loss=0.185, TAw acc= 96.2% |
+| Epoch  84, time=  4.4s | Train: skip eval | Valid: time=  0.3s loss=0.180, TAw acc= 96.5% |
+| Epoch  85, time=  4.5s | Train: skip eval | Valid: time=  0.3s loss=0.182, TAw acc= 96.2% |
+| Epoch  86, time=  4.4s | Train: skip eval | Valid: time=  0.3s loss=0.181, TAw acc= 96.5% |
+| Epoch  87, time=  4.3s | Train: skip eval | Valid: time=  0.3s loss=0.173, TAw acc= 96.8% | *
+| Epoch  88, time=  4.4s | Train: skip eval | Valid: time=  0.3s loss=0.181, TAw acc= 96.4% |
+| Epoch  89, time=  4.2s | Train: skip eval | Valid: time=  0.3s loss=0.176, TAw acc= 96.5% |
+| Epoch  90, time=  4.5s | Train: skip eval | Valid: time=  0.3s loss=0.177, TAw acc= 96.2% |
+| Epoch  91, time=  4.5s | Train: skip eval | Valid: time=  0.3s loss=0.178, TAw acc= 96.4% |
+| Epoch  92, time=  4.3s | Train: skip eval | Valid: time=  0.3s loss=0.181, TAw acc= 96.2% | lr=3.7e-05
+| Selected 207 train exemplars, time=  2.2s
+------------------------------------------------------------------------------------------------------------
+>>> Test on task  0 : loss=2.176 | TAw acc= 91.3%, forg=  6.4%| TAg acc= 46.4%, forg= 51.2% <<<
+>>> Test on task  1 : loss=2.856 | TAw acc= 86.2%, forg= -2.4%| TAg acc=  5.0%, forg= 78.8% <<<
+>>> Test on task  2 : loss=0.271 | TAw acc= 91.2%, forg=  0.0%| TAg acc= 91.0%, forg=  0.0% <<<
+Save at /project/6006134/barbara/EWC-DR-experiments/cl-imperfect-conditions/results/phase4_ewc_exemplars/organamnist_ewc_p0/organamnist_ewc_fixd_4
+************************************************************************************************************
+Task  3
+************************************************************************************************************
+| Epoch   1, time=  4.5s | Train: skip eval | Valid: time=  0.3s loss=0.117, TAw acc= 97.9% | *
+| Epoch   2, time=  4.6s | Train: skip eval | Valid: time=  0.3s loss=0.096, TAw acc= 98.1% | *
+| Epoch   3, time=  4.5s | Train: skip eval | Valid: time=  0.3s loss=0.093, TAw acc= 98.4% | *
+| Epoch   4, time=  4.6s | Train: skip eval | Valid: time=  0.3s loss=0.103, TAw acc= 97.9% |
+| Epoch   5, time=  4.5s | Train: skip eval | Valid: time=  0.3s loss=0.107, TAw acc= 97.7% |
+| Epoch   6, time=  4.5s | Train: skip eval | Valid: time=  0.5s loss=0.085, TAw acc= 98.1% | *
+| Epoch   7, time=  4.8s | Train: skip eval | Valid: time=  0.3s loss=0.083, TAw acc= 98.5% | *
+| Epoch   8, time=  4.6s | Train: skip eval | Valid: time=  0.3s loss=0.077, TAw acc= 98.4% | *
+| Epoch   9, time=  4.5s | Train: skip eval | Valid: time=  0.3s loss=0.085, TAw acc= 98.5% |
+| Epoch  10, time=  4.6s | Train: skip eval | Valid: time=  0.3s loss=0.075, TAw acc= 98.9% | *
+| Epoch  11, time=  4.5s | Train: skip eval | Valid: time=  0.3s loss=0.073, TAw acc= 98.3% | *
+| Epoch  12, time=  4.6s | Train: skip eval | Valid: time=  0.3s loss=0.088, TAw acc= 98.1% |
+| Epoch  13, time=  4.6s | Train: skip eval | Valid: time=  0.3s loss=0.089, TAw acc= 98.1% |
+| Epoch  14, time=  4.6s | Train: skip eval | Valid: time=  0.3s loss=0.069, TAw acc= 99.3% | *
+| Epoch  15, time=  4.5s | Train: skip eval | Valid: time=  0.3s loss=0.097, TAw acc= 98.8% |
+| Epoch  16, time=  4.5s | Train: skip eval | Valid: time=  0.3s loss=0.063, TAw acc= 99.3% | *
+| Epoch  17, time=  4.6s | Train: skip eval | Valid: time=  0.3s loss=0.064, TAw acc= 99.5% |
+| Epoch  18, time=  4.6s | Train: skip eval | Valid: time=  0.3s loss=0.076, TAw acc= 98.5% |
+| Epoch  19, time=  4.5s | Train: skip eval | Valid: time=  0.3s loss=0.062, TAw acc= 99.5% | *
+| Epoch  20, time=  4.6s | Train: skip eval | Valid: time=  0.3s loss=0.068, TAw acc= 99.2% |
+| Epoch  21, time=  4.6s | Train: skip eval | Valid: time=  0.3s loss=0.062, TAw acc= 99.1% |
+| Epoch  22, time=  4.6s | Train: skip eval | Valid: time=  0.3s loss=0.060, TAw acc= 99.5% | *
+| Epoch  23, time=  4.6s | Train: skip eval | Valid: time=  0.3s loss=0.074, TAw acc= 99.3% |
+| Epoch  24, time=  4.6s | Train: skip eval | Valid: time=  0.3s loss=0.111, TAw acc= 97.3% |
+| Epoch  25, time=  4.6s | Train: skip eval | Valid: time=  0.3s loss=0.062, TAw acc= 99.3% |
+| Epoch  26, time=  4.5s | Train: skip eval | Valid: time=  0.3s loss=0.059, TAw acc= 99.3% | *
+| Epoch  27, time=  4.5s | Train: skip eval | Valid: time=  0.3s loss=0.095, TAw acc= 97.5% |
+| Epoch  28, time=  4.5s | Train: skip eval | Valid: time=  0.3s loss=0.082, TAw acc= 99.1% |
+| Epoch  29, time=  4.5s | Train: skip eval | Valid: time=  0.3s loss=0.061, TAw acc= 99.5% |
+| Epoch  30, time=  4.5s | Train: skip eval | Valid: time=  0.3s loss=0.058, TAw acc= 99.6% | *
+| Epoch  31, time=  4.6s | Train: skip eval | Valid: time=  0.3s loss=0.064, TAw acc= 99.5% |
+| Epoch  32, time=  4.6s | Train: skip eval | Valid: time=  0.3s loss=0.065, TAw acc= 99.6% |
+| Epoch  33, time=  4.6s | Train: skip eval | Valid: time=  0.3s loss=0.051, TAw acc= 99.6% | *
+| Epoch  34, time=  4.6s | Train: skip eval | Valid: time=  0.3s loss=0.063, TAw acc= 99.7% |
+| Epoch  35, time=  4.6s | Train: skip eval | Valid: time=  0.3s loss=0.068, TAw acc= 99.6% |
+| Epoch  36, time=  4.6s | Train: skip eval | Valid: time=  0.3s loss=0.057, TAw acc= 99.5% |
+| Epoch  37, time=  4.6s | Train: skip eval | Valid: time=  0.3s loss=0.064, TAw acc= 99.5% |
+| Epoch  38, time=  4.6s | Train: skip eval | Valid: time=  0.3s loss=0.143, TAw acc= 95.9% | lr=3.3e-04
+| Epoch  39, time=  4.6s | Train: skip eval | Valid: time=  0.3s loss=0.064, TAw acc= 99.5% |
+| Epoch  40, time=  4.6s | Train: skip eval | Valid: time=  0.3s loss=0.060, TAw acc= 99.5% |
+| Epoch  41, time=  4.5s | Train: skip eval | Valid: time=  0.3s loss=0.058, TAw acc= 99.6% |
+| Epoch  42, time=  4.6s | Train: skip eval | Valid: time=  0.3s loss=0.058, TAw acc= 99.6% |
+| Epoch  43, time=  4.7s | Train: skip eval | Valid: time=  0.3s loss=0.059, TAw acc= 99.5% | lr=1.1e-04
+| Epoch  44, time=  4.6s | Train: skip eval | Valid: time=  0.3s loss=0.058, TAw acc= 99.6% |
+| Epoch  45, time=  4.6s | Train: skip eval | Valid: time=  0.3s loss=0.059, TAw acc= 99.5% |
+| Epoch  46, time=  4.6s | Train: skip eval | Valid: time=  0.3s loss=0.060, TAw acc= 99.5% |
+| Epoch  47, time=  4.6s | Train: skip eval | Valid: time=  0.3s loss=0.064, TAw acc= 99.6% |
+| Epoch  48, time=  4.6s | Train: skip eval | Valid: time=  0.3s loss=0.057, TAw acc= 99.5% | lr=3.7e-05
+| Selected 209 train exemplars, time=  2.6s
+------------------------------------------------------------------------------------------------------------
+>>> Test on task  0 : loss=3.095 | TAw acc= 93.3%, forg=  4.3%| TAg acc= 28.1%, forg= 69.5% <<<
+>>> Test on task  1 : loss=3.464 | TAw acc= 87.7%, forg= -1.5%| TAg acc=  8.6%, forg= 75.2% <<<
+>>> Test on task  2 : loss=3.543 | TAw acc= 78.3%, forg= 12.9%| TAg acc= 16.5%, forg= 74.5% <<<
+>>> Test on task  3 : loss=0.072 | TAw acc= 98.1%, forg=  0.0%| TAg acc= 98.1%, forg=  0.0% <<<
+Save at /project/6006134/barbara/EWC-DR-experiments/cl-imperfect-conditions/results/phase4_ewc_exemplars/organamnist_ewc_p0/organamnist_ewc_fixd_4
+************************************************************************************************************
+TAw Acc
+	 97.6%   0.0%   0.0%   0.0% 	Avg.: 97.6% 
+	 78.7%  83.8%   0.0%   0.0% 	Avg.: 81.2% 
+	 91.3%  86.2%  91.2%   0.0% 	Avg.: 89.6% 
+	 93.3%  87.7%  78.3%  98.1% 	Avg.: 89.3% 
+************************************************************************************************************
+TAg Acc
+	 97.6%   0.0%   0.0%   0.0% 	Avg.: 97.6% 
+	 16.7%  83.8%   0.0%   0.0% 	Avg.: 50.2% 
+	 46.4%   5.0%  91.0%   0.0% 	Avg.: 47.5% 
+	 28.1%   8.6%  16.5%  98.1% 	Avg.: 37.8% 
+************************************************************************************************************
+TAw Forg
+	  0.0%   0.0%   0.0%   0.0% 
+	 19.0%   0.0%   0.0%   0.0% 	Avg.: 19.0% 
+	  6.4%  -2.4%   0.0%   0.0% 	Avg.:  2.0% 
+	  4.3%  -1.5%  12.9%   0.0% 	Avg.:  5.2% 
+************************************************************************************************************
+TAg Forg
+	  0.0%   0.0%   0.0%   0.0% 
+	 81.0%   0.0%   0.0%   0.0% 	Avg.: 81.0% 
+	 51.2%  78.8%   0.0%   0.0% 	Avg.: 65.0% 
+	 69.5%  75.2%  74.5%   0.0% 	Avg.: 73.1% 
+************************************************************************************************************
+[Elapsed time = 0.3 h]
+Done!

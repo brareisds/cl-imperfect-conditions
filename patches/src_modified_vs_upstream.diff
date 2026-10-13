@@ -1,6 +1,23 @@
 --- a/src/approach/ewc.py
 +++ b/src/approach/ewc.py
-@@ -124,6 +124,17 @@
+@@ -1,3 +1,4 @@
++import os
+ import torch
+ import itertools
+ from argparse import ArgumentParser
+@@ -115,6 +116,11 @@
+         # pdb.set_trace()
+         # EXEMPLAR MANAGEMENT -- select training subset
+         self.exemplars_dataset.collect_exemplars(self.model, trn_loader, val_loader.dataset.transform)
++        if os.environ.get("SAVE_EXEMPLARS", "0") == "1" and self.logger is not None:
++            ex_dir = os.path.join(self.logger.exp_path, "exemplars")
++            os.makedirs(ex_dir, exist_ok=True)
++            torch.save({"images": self.exemplars_dataset.images,
++                        "labels": self.exemplars_dataset.labels}, os.path.join(ex_dir, f"task{t}.pt"))
+ 
+     def post_train_process(self, t, trn_loader):
+         """Runs after training all the epochs of the task (after the train session)"""
+@@ -124,6 +130,17 @@
  
          # calculate Fisher information
          curr_fisher = self.compute_fisher_matrix_diag(trn_loader)
@@ -18,10 +35,11 @@
          # merge fisher information, we do not want to keep fisher information for each task in memory
          for n in self.fisher.keys():
              # Added option to accumulate fisher over time with a pre-fixed growing alpha
-@@ -133,6 +144,18 @@
+@@ -132,6 +149,18 @@
+                 self.fisher[n] = alpha * self.fisher[n] + (1 - alpha) * curr_fisher[n]
              else:
                  self.fisher[n] = (self.alpha * self.fisher[n] + (1 - self.alpha) * curr_fisher[n])
- 
++
 +        # Optional: save the Fisher Information (both this task's raw
 +        # estimate and the accumulated/merged version actually used
 +        # for regularization) for later analysis -- e.g. comparing
@@ -33,10 +51,9 @@
 +            _os.makedirs(fisher_dir, exist_ok=True)
 +            torch.save(curr_fisher, _os.path.join(fisher_dir, f"task{t}_raw.pt"))
 +            torch.save(self.fisher, _os.path.join(fisher_dir, f"task{t}_accumulated.pt"))
-+
+ 
      def criterion(self, t, outputs, targets):
          """Returns the loss value"""
-         loss = 0
 --- a/src/approach/icarl.py
 +++ b/src/approach/icarl.py
 @@ -1,3 +1,4 @@

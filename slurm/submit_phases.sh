@@ -1,9 +1,9 @@
 #!/bin/bash
-# Usage (repo root): [DRY=1] bash slurm/submit_phases.sh phase1|phase2|phase3|ablation
+# Usage (repo root): [DRY=1] bash slurm/submit_phases.sh phase1|phase2|phase3|phase4|phase5|phase6|ablation
 # phase3 needs FNORM_ORGANAMNIST and FNORM_BLOODMNIST.
 # DEP=<jobid>: jobs start only if that job finishes with exit code 0.
 sub() {  # $1=job name, $2=--export string
-  cmd="sbatch ${DEP:+--dependency=afterok:$DEP} --job-name=$1 --export=ALL,$2 slurm/run_phase.sh"
+  cmd="sbatch ${DEP:+--dependency=afterok:$DEP} ${3:+--time=$3} --job-name=$1 --export=ALL,$2 slurm/run_phase.sh"
   if [ -n "$DRY" ]; then echo "$cmd"; else eval "$cmd"; fi
 }
 
@@ -34,4 +34,20 @@ ablation() {  # iCaRL without class weights
     sub ab_organamnist_icarl_${P} "DATASET=organamnist,APPROACH=icarl,NOISE=$P,OUTROOT=results/ablation_noweight,NO_CLASS_WEIGHTS=1"
   done
 }
-case "$1" in phase1|phase2|phase3|ablation) "$1";; *) echo "usage: $0 phase1|phase2|phase3|ablation"; exit 1;; esac
+phase4() {  # EWC saving exemplars, intra noise (incl. p=0)
+  for D in organamnist bloodmnist; do for P in 0 0.1 0.2 0.3; do
+    sub p4_${D}_ewc_${P} "DATASET=$D,APPROACH=ewc,NOISE=$P,OUTROOT=results/phase4_ewc_exemplars,SAVE_EXEMPLARS=1"
+  done; done
+}
+phase5() {  # EWC saving exemplars, cross-task noise
+  for D in organamnist bloodmnist; do for P in 0.1 0.3; do
+    sub p5_${D}_ewc_${P} "DATASET=$D,APPROACH=ewc,NOISE=$P,MODE=cross,OUTROOT=results/phase5_ewc_cross_exemplars,SAVE_EXEMPLARS=1"
+  done; done
+}
+phase6() {  # EWC and iCaRL saving exemplars, no label noise, PathMNIST and TissueMNIST
+  for D in pathmnist tissuemnist; do for A in icarl ewc; do
+    if [ "$D" = "tissuemnist" ]; then T=0-12:00:00; else T=0-06:00:00; fi
+    sub p6_${D}_${A} "DATASET=$D,APPROACH=$A,NOISE=0,OUTROOT=results/phase6_other_datasets,SAVE_EXEMPLARS=1" $T
+  done; done
+}
+case "$1" in phase1|phase2|phase3|phase4|phase5|phase6|ablation) "$1";; *) echo "usage: $0 phase1|phase2|phase3|phase4|phase5|phase6|ablation"; exit 1;; esac
