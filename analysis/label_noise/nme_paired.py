@@ -69,6 +69,17 @@ def main():
                     n, dm, lo, hi, w = paired(col(k1, c1), col(k2, c2))
                     paired_rows.append([kind, mode, d, p, label, n, round(dm, 3), round(lo, 3), round(hi, 3), w, int(lo > 0 or hi < 0)])
 
+    for m, mname in (("ewc", "EWC"), ("icarl", "iCaRL")):
+        for c, cname in (("tag_nme", "NME"), ("tag_logits", "logits")):
+            for d in DATASETS:
+                for p in (0.1, 0.3):
+                    k1, k2 = ("cross", d, m, p), ("intra", d, m, p)
+                    if k1 not in runs or k2 not in runs:
+                        continue
+                    n, dm, lo, hi, w = paired(col(k1, c), col(k2, c))
+                    paired_rows.append([f"cross_minus_intra_{cname}", "cross", d, p, f"{mname} cross - intra ({cname})",
+                                        n, round(dm, 3), round(lo, 3), round(hi, 3), w, int(lo > 0 or hi < 0)])
+
     with open(os.path.join(a.outdir, "summary_nme.csv"), "w", newline="") as f:
         w = csv.writer(f)
         w.writerow(["mode", "dataset", "method", "noise", "n", "tag_nme_mean", "tag_nme_std", "tag_logits_mean", "tag_logits_std"])

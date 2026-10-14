@@ -31,7 +31,7 @@
 "num_workers" : 4,
 "pin_memory" : false,
 "pretrained" : false,
-"results_path" : "/project/6006134/barbara/EWC-DR-experiments/cl-imperfect-conditions/results/phase5_ewc_cross_exemplars/organamnist_ewc_p0.3",
+"results_path" : "<project>/cl-imperfect-conditions/results/phase5_ewc_cross_exemplars/organamnist_ewc_p0.3",
 "save_models" : true,
 "seed" : 2,
 "stop_at_task" : 0,

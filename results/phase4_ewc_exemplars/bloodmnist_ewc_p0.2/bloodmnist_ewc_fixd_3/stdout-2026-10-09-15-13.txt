@@ -41,7 +41,7 @@ Task  0
 | Selected 200 train exemplars, time=  2.9s
 ------------------------------------------------------------------------------------------------------------
 >>> Test on task  0 : loss=0.261 | TAw acc= 97.7%, forg=  0.0%| TAg acc= 97.7%, forg=  0.0% <<<
-Save at /project/6006134/barbara/EWC-DR-experiments/cl-imperfect-conditions/results/phase4_ewc_exemplars/bloodmnist_ewc_p0.2/bloodmnist_ewc_fixd_3
+Save at <project>/cl-imperfect-conditions/results/phase4_ewc_exemplars/bloodmnist_ewc_p0.2/bloodmnist_ewc_fixd_3
 ************************************************************************************************************
 Task  1
 ************************************************************************************************************
@@ -103,7 +103,7 @@ Task  1
 ------------------------------------------------------------------------------------------------------------
 >>> Test on task  0 : loss=1.177 | TAw acc= 99.9%, forg= -2.1%| TAg acc= 63.0%, forg= 34.7% <<<
 >>> Test on task  1 : loss=0.393 | TAw acc= 90.8%, forg=  0.0%| TAg acc= 90.8%, forg=  0.0% <<<
-Save at /project/6006134/barbara/EWC-DR-experiments/cl-imperfect-conditions/results/phase4_ewc_exemplars/bloodmnist_ewc_p0.2/bloodmnist_ewc_fixd_3
+Save at <project>/cl-imperfect-conditions/results/phase4_ewc_exemplars/bloodmnist_ewc_p0.2/bloodmnist_ewc_fixd_3
 ************************************************************************************************************
 Task  2
 ************************************************************************************************************
@@ -144,7 +144,7 @@ Task  2
 >>> Test on task  0 : loss=2.329 | TAw acc= 99.3%, forg=  0.5%| TAg acc= 61.7%, forg= 36.1% <<<
 >>> Test on task  1 : loss=4.667 | TAw acc= 65.5%, forg= 25.3%| TAg acc=  0.0%, forg= 90.8% <<<
 >>> Test on task  2 : loss=0.463 | TAw acc= 84.0%, forg=  0.0%| TAg acc= 84.0%, forg=  0.0% <<<
-Save at /project/6006134/barbara/EWC-DR-experiments/cl-imperfect-conditions/results/phase4_ewc_exemplars/bloodmnist_ewc_p0.2/bloodmnist_ewc_fixd_3
+Save at <project>/cl-imperfect-conditions/results/phase4_ewc_exemplars/bloodmnist_ewc_p0.2/bloodmnist_ewc_fixd_3
 ************************************************************************************************************
 Task  3
 ************************************************************************************************************
@@ -183,7 +183,7 @@ Task  3
 >>> Test on task  1 : loss=3.915 | TAw acc= 85.4%, forg=  5.4%| TAg acc=  0.0%, forg= 90.8% <<<
 >>> Test on task  2 : loss=3.384 | TAw acc= 80.9%, forg=  3.2%| TAg acc=  0.0%, forg= 84.0% <<<
 >>> Test on task  3 : loss=0.585 | TAw acc= 80.7%, forg=  0.0%| TAg acc= 79.8%, forg=  0.0% <<<
-Save at /project/6006134/barbara/EWC-DR-experiments/cl-imperfect-conditions/results/phase4_ewc_exemplars/bloodmnist_ewc_p0.2/bloodmnist_ewc_fixd_3
+Save at <project>/cl-imperfect-conditions/results/phase4_ewc_exemplars/bloodmnist_ewc_p0.2/bloodmnist_ewc_fixd_3
 ************************************************************************************************************
 TAw Acc
 	 97.7%   0.0%   0.0%   0.0% 	Avg.: 97.7% 

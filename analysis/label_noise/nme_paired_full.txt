@@ -1,0 +1,75 @@
+t(0.975, df=4) = 2.7760
+
+== paired differences in TAg acc (wins = seeds with positive difference; * = interval excludes zero) ==
+ewc_nme_minus_logits           intra organamnist p=0.0 n=5 diff=  18.400 CI[  15.086,  21.714] wins=5/5 *
+ewc_nme_minus_logits           intra organamnist p=0.1 n=5 diff=  21.696 CI[  14.472,  28.920] wins=5/5 *
+ewc_nme_minus_logits           intra organamnist p=0.2 n=5 diff=  18.217 CI[  13.275,  23.159] wins=5/5 *
+ewc_nme_minus_logits           intra organamnist p=0.3 n=5 diff=  17.588 CI[  13.782,  21.394] wins=5/5 *
+ewc_nme_minus_logits           intra bloodmnist  p=0.0 n=5 diff=  21.248 CI[  17.055,  25.441] wins=5/5 *
+ewc_nme_minus_logits           intra bloodmnist  p=0.1 n=5 diff=  22.577 CI[  16.563,  28.590] wins=5/5 *
+ewc_nme_minus_logits           intra bloodmnist  p=0.2 n=5 diff=  24.931 CI[  20.852,  29.010] wins=5/5 *
+ewc_nme_minus_logits           intra bloodmnist  p=0.3 n=5 diff=  18.582 CI[  10.439,  26.725] wins=5/5 *
+ewc_nme_minus_logits           cross organamnist p=0.1 n=5 diff=   4.269 CI[   1.677,   6.861] wins=5/5 *
+ewc_nme_minus_logits           cross organamnist p=0.3 n=5 diff=  -1.226 CI[  -8.783,   6.330] wins=2/5 
+ewc_nme_minus_logits           cross bloodmnist  p=0.1 n=5 diff=  11.858 CI[   7.650,  16.065] wins=5/5 *
+ewc_nme_minus_logits           cross bloodmnist  p=0.3 n=5 diff=   4.600 CI[   0.699,   8.501] wins=5/5 *
+ewc_nme_minus_logits           other pathmnist   p=0.0 n=5 diff=  24.529 CI[  19.547,  29.510] wins=5/5 *
+ewc_nme_minus_logits           other tissuemnist p=0.0 n=5 diff=  10.611 CI[   4.583,  16.640] wins=5/5 *
+icarl_nme_minus_logits         intra organamnist p=0.0 n=5 diff=  17.569 CI[  14.065,  21.072] wins=5/5 *
+icarl_nme_minus_logits         intra organamnist p=0.1 n=5 diff=  19.980 CI[  15.773,  24.187] wins=5/5 *
+icarl_nme_minus_logits         intra organamnist p=0.2 n=5 diff=  17.540 CI[  12.740,  22.339] wins=5/5 *
+icarl_nme_minus_logits         intra organamnist p=0.3 n=5 diff=  16.033 CI[   9.711,  22.354] wins=5/5 *
+icarl_nme_minus_logits         intra bloodmnist  p=0.0 n=5 diff=  29.865 CI[  19.194,  40.537] wins=5/5 *
+icarl_nme_minus_logits         intra bloodmnist  p=0.1 n=5 diff=  28.703 CI[  20.059,  37.348] wins=5/5 *
+icarl_nme_minus_logits         intra bloodmnist  p=0.2 n=5 diff=  28.167 CI[  21.646,  34.688] wins=5/5 *
+icarl_nme_minus_logits         intra bloodmnist  p=0.3 n=5 diff=  21.908 CI[  14.831,  28.985] wins=5/5 *
+icarl_nme_minus_logits         cross organamnist p=0.1 n=5 diff=   3.702 CI[  -4.473,  11.878] wins=3/5 
+icarl_nme_minus_logits         cross organamnist p=0.3 n=5 diff=  -0.412 CI[  -6.040,   5.216] wins=3/5 
+icarl_nme_minus_logits         cross bloodmnist  p=0.1 n=5 diff=  13.762 CI[   6.821,  20.704] wins=5/5 *
+icarl_nme_minus_logits         cross bloodmnist  p=0.3 n=5 diff=   3.362 CI[   1.522,   5.202] wins=5/5 *
+icarl_nme_minus_logits         other pathmnist   p=0.0 n=5 diff=  26.495 CI[  18.055,  34.935] wins=5/5 *
+icarl_nme_minus_logits         other tissuemnist p=0.0 n=5 diff=  10.713 CI[   4.853,  16.574] wins=5/5 *
+icarl_nme_minus_ewc_nme        intra organamnist p=0.0 n=5 diff=   1.083 CI[  -2.707,   4.873] wins=4/5 
+icarl_nme_minus_ewc_nme        intra organamnist p=0.1 n=5 diff=  -2.035 CI[  -5.754,   1.684] wins=1/5 
+icarl_nme_minus_ewc_nme        intra organamnist p=0.2 n=5 diff=  -2.615 CI[  -7.270,   2.039] wins=1/5 
+icarl_nme_minus_ewc_nme        intra organamnist p=0.3 n=5 diff=  -0.431 CI[  -5.061,   4.199] wins=3/5 
+icarl_nme_minus_ewc_nme        intra bloodmnist  p=0.0 n=5 diff=  -0.510 CI[  -5.645,   4.624] wins=2/5 
+icarl_nme_minus_ewc_nme        intra bloodmnist  p=0.1 n=5 diff=  -1.857 CI[  -5.972,   2.259] wins=1/5 
+icarl_nme_minus_ewc_nme        intra bloodmnist  p=0.2 n=5 diff=  -0.905 CI[  -3.584,   1.773] wins=1/5 
+icarl_nme_minus_ewc_nme        intra bloodmnist  p=0.3 n=5 diff=   1.157 CI[  -1.620,   3.934] wins=3/5 
+icarl_nme_minus_ewc_nme        cross organamnist p=0.1 n=5 diff=   1.130 CI[  -2.474,   4.734] wins=3/5 
+icarl_nme_minus_ewc_nme        cross organamnist p=0.3 n=5 diff=   2.386 CI[  -5.603,  10.375] wins=2/5 
+icarl_nme_minus_ewc_nme        cross bloodmnist  p=0.1 n=5 diff=  -3.244 CI[ -11.344,   4.855] wins=2/5 
+icarl_nme_minus_ewc_nme        cross bloodmnist  p=0.3 n=5 diff=   1.014 CI[  -2.341,   4.368] wins=3/5 
+icarl_nme_minus_ewc_nme        other pathmnist   p=0.0 n=5 diff=   3.760 CI[   0.757,   6.763] wins=5/5 *
+icarl_nme_minus_ewc_nme        other tissuemnist p=0.0 n=5 diff=   0.059 CI[  -4.074,   4.193] wins=2/5 
+icarl_logits_minus_ewc_logits  intra organamnist p=0.0 n=5 diff=   1.914 CI[  -4.719,   8.548] wins=3/5 
+icarl_logits_minus_ewc_logits  intra organamnist p=0.1 n=5 diff=  -0.318 CI[  -5.972,   5.335] wins=2/5 
+icarl_logits_minus_ewc_logits  intra organamnist p=0.2 n=5 diff=  -1.938 CI[  -6.022,   2.146] wins=2/5 
+icarl_logits_minus_ewc_logits  intra organamnist p=0.3 n=5 diff=   1.125 CI[  -5.360,   7.610] wins=3/5 
+icarl_logits_minus_ewc_logits  intra bloodmnist  p=0.0 n=5 diff=  -9.128 CI[ -23.486,   5.230] wins=1/5 
+icarl_logits_minus_ewc_logits  intra bloodmnist  p=0.1 n=5 diff=  -7.983 CI[ -21.598,   5.632] wins=1/5 
+icarl_logits_minus_ewc_logits  intra bloodmnist  p=0.2 n=5 diff=  -4.141 CI[ -10.858,   2.576] wins=1/5 
+icarl_logits_minus_ewc_logits  intra bloodmnist  p=0.3 n=5 diff=  -2.168 CI[ -11.782,   7.446] wins=3/5 
+icarl_logits_minus_ewc_logits  cross organamnist p=0.1 n=5 diff=   1.696 CI[  -3.250,   6.642] wins=4/5 
+icarl_logits_minus_ewc_logits  cross organamnist p=0.3 n=5 diff=   1.572 CI[  -4.387,   7.531] wins=4/5 
+icarl_logits_minus_ewc_logits  cross bloodmnist  p=0.1 n=5 diff=  -5.149 CI[ -10.696,   0.398] wins=1/5 
+icarl_logits_minus_ewc_logits  cross bloodmnist  p=0.3 n=5 diff=   2.252 CI[  -0.470,   4.974] wins=4/5 
+icarl_logits_minus_ewc_logits  other pathmnist   p=0.0 n=5 diff=   1.794 CI[  -6.851,  10.439] wins=2/5 
+icarl_logits_minus_ewc_logits  other tissuemnist p=0.0 n=5 diff=  -0.043 CI[  -0.583,   0.498] wins=3/5 
+cross_minus_intra_NME          cross organamnist p=0.1 n=5 diff= -22.783 CI[ -29.346, -16.221] wins=0/5 *
+cross_minus_intra_NME          cross organamnist p=0.3 n=5 diff= -20.033 CI[ -33.124,  -6.942] wins=0/5 *
+cross_minus_intra_NME          cross bloodmnist  p=0.1 n=5 diff= -18.583 CI[ -27.308,  -9.858] wins=0/5 *
+cross_minus_intra_NME          cross bloodmnist  p=0.3 n=5 diff= -20.043 CI[ -30.239,  -9.846] wins=0/5 *
+cross_minus_intra_logits       cross organamnist p=0.1 n=5 diff=  -5.356 CI[ -15.555,   4.843] wins=1/5 
+cross_minus_intra_logits       cross organamnist p=0.3 n=5 diff=  -1.219 CI[  -6.626,   4.188] wins=2/5 
+cross_minus_intra_logits       cross bloodmnist  p=0.1 n=5 diff=  -7.864 CI[ -14.751,  -0.976] wins=0/5 *
+cross_minus_intra_logits       cross bloodmnist  p=0.3 n=5 diff=  -6.060 CI[ -17.167,   5.046] wins=2/5 
+cross_minus_intra_NME          cross organamnist p=0.1 n=5 diff= -19.619 CI[ -29.423,  -9.815] wins=0/5 *
+cross_minus_intra_NME          cross organamnist p=0.3 n=5 diff= -17.216 CI[ -25.496,  -8.936] wins=0/5 *
+cross_minus_intra_NME          cross bloodmnist  p=0.1 n=5 diff= -19.970 CI[ -29.690, -10.250] wins=0/5 *
+cross_minus_intra_NME          cross bloodmnist  p=0.3 n=5 diff= -20.186 CI[ -29.959, -10.414] wins=0/5 *
+cross_minus_intra_logits       cross organamnist p=0.1 n=5 diff=  -3.341 CI[  -9.194,   2.512] wins=1/5 
+cross_minus_intra_logits       cross organamnist p=0.3 n=5 diff=  -0.771 CI[  -7.369,   5.827] wins=2/5 
+cross_minus_intra_logits       cross bloodmnist  p=0.1 n=5 diff=  -5.030 CI[ -18.615,   8.556] wins=3/5 
+cross_minus_intra_logits       cross bloodmnist  p=0.3 n=5 diff=  -1.640 CI[ -10.126,   6.846] wins=3/5 

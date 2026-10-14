@@ -41,7 +41,7 @@ Task  0
 | Selected 201 train exemplars, time=  6.9s
 ------------------------------------------------------------------------------------------------------------
 >>> Test on task  0 : loss=0.490 | TAw acc= 94.2%, forg=  0.0%| TAg acc= 94.2%, forg=  0.0% <<<
-Save at /project/6006134/barbara/EWC-DR-experiments/cl-imperfect-conditions/results/phase5_ewc_cross_exemplars/organamnist_ewc_p0.3/organamnist_ewc_fixd_4
+Save at <project>/cl-imperfect-conditions/results/phase5_ewc_cross_exemplars/organamnist_ewc_p0.3/organamnist_ewc_fixd_4
 ************************************************************************************************************
 Task  1
 ************************************************************************************************************
@@ -91,7 +91,7 @@ Task  1
 ------------------------------------------------------------------------------------------------------------
 >>> Test on task  0 : loss=1.620 | TAw acc= 71.5%, forg= 22.7%| TAg acc= 39.5%, forg= 54.6% <<<
 >>> Test on task  1 : loss=0.570 | TAw acc= 93.3%, forg=  0.0%| TAg acc= 93.2%, forg=  0.0% <<<
-Save at /project/6006134/barbara/EWC-DR-experiments/cl-imperfect-conditions/results/phase5_ewc_cross_exemplars/organamnist_ewc_p0.3/organamnist_ewc_fixd_4
+Save at <project>/cl-imperfect-conditions/results/phase5_ewc_cross_exemplars/organamnist_ewc_p0.3/organamnist_ewc_fixd_4
 ************************************************************************************************************
 Task  2
 ************************************************************************************************************
@@ -142,7 +142,7 @@ Task  2
 >>> Test on task  0 : loss=2.291 | TAw acc= 65.7%, forg= 28.4%| TAg acc= 25.7%, forg= 68.5% <<<
 >>> Test on task  1 : loss=2.627 | TAw acc= 76.1%, forg= 17.2%| TAg acc=  1.1%, forg= 92.2% <<<
 >>> Test on task  2 : loss=0.695 | TAw acc= 87.8%, forg=  0.0%| TAg acc= 87.8%, forg=  0.0% <<<
-Save at /project/6006134/barbara/EWC-DR-experiments/cl-imperfect-conditions/results/phase5_ewc_cross_exemplars/organamnist_ewc_p0.3/organamnist_ewc_fixd_4
+Save at <project>/cl-imperfect-conditions/results/phase5_ewc_cross_exemplars/organamnist_ewc_p0.3/organamnist_ewc_fixd_4
 ************************************************************************************************************
 Task  3
 ************************************************************************************************************
@@ -175,7 +175,7 @@ Task  3
 >>> Test on task  1 : loss=3.064 | TAw acc= 53.2%, forg= 40.1%| TAg acc=  0.0%, forg= 93.2% <<<
 >>> Test on task  2 : loss=2.737 | TAw acc= 69.6%, forg= 18.2%| TAg acc= 10.6%, forg= 77.2% <<<
 >>> Test on task  3 : loss=0.470 | TAw acc= 97.3%, forg=  0.0%| TAg acc= 97.1%, forg=  0.0% <<<
-Save at /project/6006134/barbara/EWC-DR-experiments/cl-imperfect-conditions/results/phase5_ewc_cross_exemplars/organamnist_ewc_p0.3/organamnist_ewc_fixd_4
+Save at <project>/cl-imperfect-conditions/results/phase5_ewc_cross_exemplars/organamnist_ewc_p0.3/organamnist_ewc_fixd_4
 ************************************************************************************************************
 TAw Acc
 	 94.2%   0.0%   0.0%   0.0% 	Avg.: 94.2% 
